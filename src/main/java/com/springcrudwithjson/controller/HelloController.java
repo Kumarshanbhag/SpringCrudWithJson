@@ -31,4 +31,9 @@ public class HelloController {
     public User updateUser(@PathVariable int id, @RequestBody User user) {
         return helloService.updateUser(id, user);
     }
+
+    @DeleteMapping ("/delete/{id}")
+    public User deleteUser(@PathVariable int id) {
+        return helloService.deleteUser(id);
+    }
 }

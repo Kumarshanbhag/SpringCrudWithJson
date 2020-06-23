@@ -37,4 +37,9 @@ public class HelloService implements IHelloService{
     public User updateUser(int id, User user) {
         return helloRepository.updateUser(id, user);
     }
+
+    @Override
+    public User deleteUser(int id) {
+        return helloRepository.deleteUser(id);
+    }
 }

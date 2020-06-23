@@ -75,4 +75,12 @@ public class HelloRepository implements IHelloRepository {
         writeDataInJson();
         return userById;
     }
+
+    @Override
+    public User deleteUser(int id) {
+        User userById = getUserById(id);
+        userList.remove(userById);
+        writeDataInJson();
+        return userById;
+    }
 }
