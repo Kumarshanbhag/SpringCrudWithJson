@@ -16,14 +16,12 @@ public class HelloRepository implements IHelloRepository {
     ObjectMapper objectMapper = new ObjectMapper();
     List<User> userList = null;
 
-    @Override
-    public List<User> getAllUser() {
+    public void loadJSONData() {
         try {
             InputStream inputStream = new FileInputStream(new File("src/main/resources/JSONData/User.json"));
             TypeReference<List<User>> typeReference = new TypeReference<List<User>>() {
             };
             userList = objectMapper.readValue(inputStream, typeReference);
-            return userList;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (JsonParseException e) {
@@ -33,13 +31,18 @@ public class HelloRepository implements IHelloRepository {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+    }
+
+    @Override
+    public List<User> getAllUser() {
+        loadJSONData();
+        return userList;
     }
 
     @Override
     public User addUser(User user) {
+        loadJSONData();
         try {
-            userList = getAllUser();
             Collections.addAll(userList, user);
             objectMapper.writeValue(new File("src/main/resources/JSONData/User.json"), userList);
             return user;
@@ -51,7 +54,7 @@ public class HelloRepository implements IHelloRepository {
 
     @Override
     public User getUserById(int id) {
-        userList = getAllUser();
+        loadJSONData();
         for(User user: userList) {
             if(user.getId() == id){
                 return user;
