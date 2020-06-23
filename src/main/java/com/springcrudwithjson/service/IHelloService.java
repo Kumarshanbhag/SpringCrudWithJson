@@ -8,4 +8,6 @@ public interface IHelloService {
     List<User> getAllUser();
 
     User addUser(User user);
+
+    User getUserById(int id);
 }

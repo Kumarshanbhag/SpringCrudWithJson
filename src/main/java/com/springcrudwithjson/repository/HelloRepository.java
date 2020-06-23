@@ -48,4 +48,15 @@ public class HelloRepository implements IHelloRepository {
         }
         return null;
     }
+
+    @Override
+    public User getUserById(int id) {
+        userList = getAllUser();
+        for(User user: userList) {
+            if(user.getId() == id){
+                return user;
+            }
+        }
+        return null;
+    }
 }

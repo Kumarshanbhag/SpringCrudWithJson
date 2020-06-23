@@ -25,7 +25,11 @@ public class HelloService implements IHelloService{
 
     @Override
     public User addUser(User user) {
-
         return helloRepository.addUser(user);
+    }
+
+    @Override
+    public User getUserById(int id) {
+        return helloRepository.getUserById(id);
     }
 }
