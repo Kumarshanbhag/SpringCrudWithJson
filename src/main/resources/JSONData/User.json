@@ -1,12 +1,1 @@
-[
-  {
-    "id": 1,
-    "userName": "Kumar",
-    "lastName": "Shanbhag"
-  },
-  {
-    "id": 2,
-    "userName": "Lata",
-    "lastName": "Shanbhag"
-  }
-]
+[{"id":1,"userName":"Kumar","lastName":"Shanbhag"},{"id":2,"userName":"Lata","lastName":"Shanbhag"},{"id":3,"userName":"Kumar","lastName":"Shanbhag"}]

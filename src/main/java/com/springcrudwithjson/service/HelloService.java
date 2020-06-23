@@ -32,4 +32,9 @@ public class HelloService implements IHelloService{
     public User getUserById(int id) {
         return helloRepository.getUserById(id);
     }
+
+    @Override
+    public User updateUser(int id, User user) {
+        return helloRepository.updateUser(id, user);
+    }
 }

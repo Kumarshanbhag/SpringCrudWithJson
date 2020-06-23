@@ -10,4 +10,6 @@ public interface IHelloService {
     User addUser(User user);
 
     User getUserById(int id);
+
+    User updateUser(int id, User user);
 }

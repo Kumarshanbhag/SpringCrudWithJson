@@ -26,4 +26,9 @@ public class HelloController {
     public User addUser(@RequestBody User user) {
         return helloService.addUser(user);
     }
+
+    @PutMapping ("/update/{id}")
+    public User updateUser(@PathVariable int id, @RequestBody User user) {
+        return helloService.updateUser(id, user);
+    }
 }

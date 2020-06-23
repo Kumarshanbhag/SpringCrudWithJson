@@ -55,11 +55,26 @@ public class HelloRepository implements IHelloRepository {
     @Override
     public User getUserById(int id) {
         loadJSONData();
-        for(User user: userList) {
-            if(user.getId() == id){
+        for (User user : userList) {
+            if (user.getId() == id) {
                 return user;
             }
         }
         return null;
     }
+
+    @Override
+    public User updateUser(int id, User user) {
+        User userById = getUserById(id);
+        userById.setUserName((user.getUserName() == null) ? userById.getUserName() : user.getUserName());
+        userById.setLastName((user.getLastName() == null) ? userById.getLastName() : user.getLastName());
+        userList.set(userList.indexOf(userById), userById);
+        try {
+            objectMapper.writeValue(new File("src/main/resources/JSONData/User.json"), userList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return userById;
+    }
+
 }
