@@ -1,19 +1,17 @@
 package com.springcrudwithjson.model;
 
-import java.util.concurrent.atomic.AtomicLong;
-
 public class User {
     public int id;
-    public String username;
-    public String password;
+    public String userName;
+    public String lastName;
 
     public User() {
     }
 
-    public User(int id, String username, String password) {
+    public User(int id, String userName, String lastName) {
         this.id = id;
-        this.username = username;
-        this.password = password;
+        this.userName = userName;
+        this.lastName = lastName;
     }
 
     public int getId() {
@@ -24,19 +22,19 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getPassword() {
-        return password;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }

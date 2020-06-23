@@ -22,4 +22,10 @@ public class HelloService implements IHelloService{
     public List<User> getAllUser() {
         return helloRepository.getAllUser();
     }
+
+    @Override
+    public User addUser(User user) {
+
+        return helloRepository.addUser(user);
+    }
 }

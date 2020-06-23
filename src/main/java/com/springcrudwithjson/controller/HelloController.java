@@ -19,4 +19,9 @@ public class HelloController {
     public List<User> getUsers() {
         return helloService.getAllUser();
     }
+
+    @PostMapping ("/add")
+    public User addUser(@RequestBody User user) {
+        return helloService.addUser(user);
+    }
 }

@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IHelloRepository {
     List<User> getAllUser();
+
+    User addUser(User user);
 }
