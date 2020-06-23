@@ -33,6 +33,14 @@ public class HelloRepository implements IHelloRepository {
         }
     }
 
+    public void writeDataInJson() {
+        try {
+            objectMapper.writeValue(new File("src/main/resources/JSONData/User.json"), userList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public List<User> getAllUser() {
         loadJSONData();
@@ -42,14 +50,9 @@ public class HelloRepository implements IHelloRepository {
     @Override
     public User addUser(User user) {
         loadJSONData();
-        try {
-            Collections.addAll(userList, user);
-            objectMapper.writeValue(new File("src/main/resources/JSONData/User.json"), userList);
-            return user;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
+        Collections.addAll(userList, user);
+        writeDataInJson();
+        return user;
     }
 
     @Override
@@ -69,12 +72,7 @@ public class HelloRepository implements IHelloRepository {
         userById.setUserName((user.getUserName() == null) ? userById.getUserName() : user.getUserName());
         userById.setLastName((user.getLastName() == null) ? userById.getLastName() : user.getLastName());
         userList.set(userList.indexOf(userById), userById);
-        try {
-            objectMapper.writeValue(new File("src/main/resources/JSONData/User.json"), userList);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        writeDataInJson();
         return userById;
     }
-
 }
